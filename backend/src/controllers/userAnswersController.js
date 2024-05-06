@@ -1,5 +1,19 @@
 import { UserAnswersService } from "../services/index.js";
 
+async function getShowAllUserAnswersByUserId(req, res) {
+  try {
+    const userId = req.params.userId;
+    const foundUserAnswers =
+      await UserAnswersService.showAllUserAnswersByUserId(userId);
+    res.json(foundUserAnswers);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: "Could not find the answers of this user." });
+  }
+}
+
 async function postCreateUserAnswerCtrl(req, res) {
   try {
     // userId und questionId sind Teil der Endpunkt-URL: .post("/api/v1/userAnswers", UserAnswersController.postCreateUserAnswerCtrl);
@@ -44,6 +58,7 @@ async function deleteUserAnswerCtrl(req, res) {
 }
 
 export const UserAnswersController = {
+  getShowAllUserAnswersByUserId,
   postCreateUserAnswerCtrl,
   deleteUserAnswerCtrl,
 };

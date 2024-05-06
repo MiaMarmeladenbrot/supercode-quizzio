@@ -3,6 +3,10 @@ import { UserAnswersController } from "../controllers/userAnswersController.js";
 
 export const userAnswersRouter = express
   .Router()
+  .get(
+    "/api/v1/users/:userId/userAnswers",
+    UserAnswersController.getShowAllUserAnswersByUserId
+  )
   // Alternativer Endpunkt, dann userId und questionId im req.body mitgeben: .post("/api/v1/userAnswers", UserAnswersController.postCreateUserAnswerCtrl);
   .post(
     "/api/v1/users/:userId/userAnswers/:questionId",

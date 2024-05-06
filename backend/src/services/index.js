@@ -8,6 +8,7 @@ import { removeQuestionAndUserAnswers } from "./removeQuestionAndUserAnswers.js"
 import { removeQuiz } from "./removeQuiz.js";
 import { removeUserAndUserAnswers } from "./removeUserAndUserAnswers.js";
 import { removeUserAnswer } from "./removeUserAnswer.js";
+import { showAllUserAnswersByUserId } from "./showAllUserAnswers.js";
 import { showOneQuiz } from "./showOneQuiz.js";
 
 export const QuizzesService = {
@@ -30,5 +31,6 @@ export const UsersService = {
 
 export const UserAnswersService = {
   addUserAnswer,
+  showAllUserAnswersByUserId,
   removeUserAnswer,
 };

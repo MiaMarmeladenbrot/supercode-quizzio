@@ -38,7 +38,7 @@ async function deleteUserAnswerCtrl(req, res) {
     console.log(err);
     res.status(500).json({
       err,
-      message: "Could not delete user answer with id: " + userAnswerId,
+      message: "Could not delete user answer with this id.",
     });
   }
 }

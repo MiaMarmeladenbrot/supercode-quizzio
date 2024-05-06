@@ -21,7 +21,7 @@ async function deleteQuestionAndUserAnswersCtrl(req, res) {
     console.log(err);
     res.status(500).json({
       err,
-      message: "Could not delete question with Id " + questionId,
+      message: "Could not delete question with this id",
     });
   }
 }

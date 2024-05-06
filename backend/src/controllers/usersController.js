@@ -21,7 +21,7 @@ async function deleteUserAndUserAnswersCtrl(req, res) {
     console.log(err);
     res
       .status(500)
-      .json({ err, message: "Could not delete user with id " + userId });
+      .json({ err, message: "Could not delete user with this id" });
   }
 }
 export const UsersController = {

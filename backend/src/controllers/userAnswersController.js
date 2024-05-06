@@ -11,6 +11,7 @@ async function postCreateUserAnswerCtrl(req, res) {
     const newUserAnswer = {
       questionId,
       userId,
+      // # wie kommen wir an answer-Daten?
       answerContent: req.body.answerContent,
       answerFeedback: req.body.answerFeedback,
     };

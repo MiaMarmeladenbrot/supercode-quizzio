@@ -11,6 +11,22 @@ async function postCreateQuestionCtrl(req, res) {
   }
 }
 
+async function deleteQuestionAndUserAnswersCtrl(req, res) {
+  try {
+    const questionId = req.params.questionId;
+    const deletedQuestionAndUserAnswers =
+      await QuestionsService.removeQuestionAndUserAnswers(questionId);
+    res.json(deletedQuestionAndUserAnswers);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      err,
+      message: "Could not delete question with Id " + questionId,
+    });
+  }
+}
+
 export const QuestionsController = {
   postCreateQuestionCtrl,
+  deleteQuestionAndUserAnswersCtrl,
 };

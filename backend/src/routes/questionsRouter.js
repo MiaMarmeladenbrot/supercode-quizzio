@@ -3,4 +3,5 @@ import { QuestionsController } from "../controllers/questionsController.js";
 
 export const questionsRouter = express
   .Router()
-  .post("/", QuestionsController.postCreateQuestionCtrl);
+  .post("/", QuestionsController.postCreateQuestionCtrl)
+  .delete("/:questionId", QuestionsController.deleteQuestionAndUserAnswersCtrl);

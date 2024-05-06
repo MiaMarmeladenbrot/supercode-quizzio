@@ -11,6 +11,22 @@ async function postCreateQuestionCtrl(req, res) {
   }
 }
 
+async function patchUpdateQuestionCtrl(req, res) {
+  try {
+    const questionId = req.params.questionId;
+    const questionUpdateInfos = req.body;
+
+    const editedQuestion = await QuestionsService.editQuestion(
+      questionId,
+      questionUpdateInfos
+    );
+    res.json(editedQuestion);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ err, message: "Could not update this question." });
+  }
+}
+
 async function deleteQuestionAndUserAnswersCtrl(req, res) {
   try {
     const questionId = req.params.questionId;
@@ -28,5 +44,6 @@ async function deleteQuestionAndUserAnswersCtrl(req, res) {
 
 export const QuestionsController = {
   postCreateQuestionCtrl,
+  patchUpdateQuestionCtrl,
   deleteQuestionAndUserAnswersCtrl,
 };

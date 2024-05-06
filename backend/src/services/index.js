@@ -4,6 +4,7 @@ import { addUser } from "./addUser.js";
 import { addUserAnswer } from "./addUserAnswer.js";
 import { removeQuestionAndUserAnswers } from "./removeQuestionAndUserAnswers.js";
 import { removeQuiz } from "./removeQuiz.js";
+import { removeUserAndUserAnswers } from "./removeUserAndUserAnswers.js";
 import { removeUserAnswer } from "./removeUserAnswer.js";
 import { showOneQuiz } from "./showOneQuiz.js";
 
@@ -18,7 +19,10 @@ export const QuestionsService = {
   removeQuestionAndUserAnswers,
 };
 
-export const UsersService = { addUser };
+export const UsersService = {
+  addUser,
+  removeUserAndUserAnswers,
+};
 
 export const UserAnswersService = {
   addUserAnswer,

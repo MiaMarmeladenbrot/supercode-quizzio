@@ -5,6 +5,7 @@ import { connectToDatabase } from "./models/index.js";
 import { quizzesRouter } from "./routes/quizzesRouter.js";
 import { questionsRouter } from "./routes/questionsRouter.js";
 import { usersRouter } from "./routes/usersRouter.js";
+import { userAnswersRouter } from "./routes/userAnswersRouter.js";
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(quizzesRouter);
 app.use("/api/v1/questions", questionsRouter);
 app.use(usersRouter);
+app.use(userAnswersRouter);
 
 try {
   await connectToDatabase();

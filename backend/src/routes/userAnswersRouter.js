@@ -7,4 +7,8 @@ export const userAnswersRouter = express
   .post(
     "/api/v1/users/:userId/userAnswers/:questionId",
     UserAnswersController.postCreateUserAnswerCtrl
+  )
+  .delete(
+    "/api/v1/userAnswers/:userAnswerId",
+    UserAnswersController.deleteUserAnswerCtrl
   );

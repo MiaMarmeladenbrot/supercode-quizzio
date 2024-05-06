@@ -26,6 +26,23 @@ async function postCreateUserAnswerCtrl(req, res) {
   }
 }
 
+async function deleteUserAnswerCtrl(req, res) {
+  try {
+    const userAnswerId = req.params.userAnswerId;
+    const removedUserAnswer = await UserAnswersService.removeUserAnswer(
+      userAnswerId
+    );
+    res.json(removedUserAnswer);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      err,
+      message: "Could not delete user answer with id: " + userAnswerId,
+    });
+  }
+}
+
 export const UserAnswersController = {
   postCreateUserAnswerCtrl,
+  deleteUserAnswerCtrl,
 };

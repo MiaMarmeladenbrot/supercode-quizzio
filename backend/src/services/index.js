@@ -3,6 +3,7 @@ import { addQuiz } from "./addQuiz.js";
 import { addUser } from "./addUser.js";
 import { addUserAnswer } from "./addUserAnswer.js";
 import { removeQuiz } from "./removeQuiz.js";
+import { removeUserAnswer } from "./removeUserAnswer.js";
 import { showOneQuiz } from "./showOneQuiz.js";
 
 export const QuizzesService = {
@@ -19,4 +20,5 @@ export const UsersService = { addUser };
 
 export const UserAnswersService = {
   addUserAnswer,
+  removeUserAnswer,
 };

@@ -3,7 +3,10 @@ import { Question } from "../models/questions.js";
 
 export async function showOneQuiz(quizId) {
   const foundQuiz = await Quiz.findById(quizId);
-  if (!foundQuiz) throw new Eroor("Quiz not found");
+  if (!foundQuiz)
+    throw new Error(
+      "Das Quiz mit der Id " + quizId + " existiert leider nicht."
+    );
 
   // Output:
   // {

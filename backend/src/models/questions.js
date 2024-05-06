@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const questionsSchema = new mongoose.Schema(
   {
-    question: { type: String },
-    answers: [{ type: String }],
-    correctAnswers: [{ type: String }],
+    question: { type: String, required: true },
+    answers: [{ type: String, required: true }],
+    correctAnswers: [{ type: String, required: true }],
   },
   { collection: "questions", timestamps: false }
 );

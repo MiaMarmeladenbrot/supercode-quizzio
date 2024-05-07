@@ -27,8 +27,8 @@ export async function showQuizStatsForUser(quizId, userId) {
     userId,
   });
 
-  // gefundene userAnswers filtenr nach denen, die korrekt beantwortet wurden und mithilfe der Länge dann anzuzeigen, wie viele richtig beantwortet wurden
-  const correctAnswers = userAnswers.filter((ans) => ans.correctAnswers);
+  // gefundene userAnswers filtern nach denen, die korrekt beantwortet wurden (answerFeedback) und mithilfe der Länge dann anzeigen, wie viele richtig beantwortet wurden
+  const correctAnswers = userAnswers.filter((ans) => ans.answerFeedback);
 
   return {
     foundQuiz,

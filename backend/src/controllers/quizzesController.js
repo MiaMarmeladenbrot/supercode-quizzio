@@ -43,7 +43,10 @@ async function showQuizStatsForUserCtrl(req, res) {
   try {
     const quizId = req.params.quizId;
     const userId = req.params.userId;
-    const foundStats = await QuizzesService.getQuizStatsForUser(quizId, userId);
+    const foundStats = await QuizzesService.showQuizStatsForUser(
+      quizId,
+      userId
+    );
     res.json(foundStats);
   } catch (err) {
     console.log(err);

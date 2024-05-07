@@ -5,7 +5,7 @@ export const quizzesRouter = express
   .Router()
   .get(
     "/api/v1/quizzes/:quizId/stats/:userId",
-    QuizzesController.getQuizStatsForUserCtrl
+    QuizzesController.showQuizStatsForUserCtrl
   )
   .get("/api/v1/quizzes/:quizId", QuizzesController.getOneQuizWithQuestionsCtrl)
   .post("/api/v1/quizzes", QuizzesController.postCreateQuizCtrl)

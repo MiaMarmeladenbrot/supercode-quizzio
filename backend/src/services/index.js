@@ -5,7 +5,7 @@ import { addUserAnswer } from "./addUserAnswer.js";
 import { editQuestion } from "./editQuestion.js";
 import { editQuiz } from "./editQuiz.js";
 import { editUser } from "./editUser.js";
-import { getQuizStatsForUser } from "./getQuizStatsForUser.js";
+import { showQuizStatsForUser } from "./showQuizStatsForUser.js";
 import { removeQuestionAndUserAnswers } from "./removeQuestionAndUserAnswers.js";
 import { removeQuiz } from "./removeQuiz.js";
 import { removeUserAndUserAnswers } from "./removeUserAndUserAnswers.js";
@@ -17,7 +17,7 @@ export const QuizzesService = {
   addQuiz,
   showOneQuiz,
   removeQuiz,
-  getQuizStatsForUser,
+  showQuizStatsForUser,
   editQuiz,
 };
 

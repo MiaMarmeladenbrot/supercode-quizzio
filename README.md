@@ -5,6 +5,7 @@ https://www.figma.com/file/ZpDwNWzvkBz4scXuoxiVOr/Quiz?type=whiteboard&node-id=0
 ## To Dos
 
 - gelöschte Questions aus Quizzes löschen
+- Abfrage in quizzes, ob die frage schon enthalten ist, bevor man sie hinzufügen kann
 - unkompliziertere URL für userAnswers?
 - patch quiz
 - patch user/question => auch userAnswers ändern?

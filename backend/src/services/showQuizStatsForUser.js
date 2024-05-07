@@ -3,7 +3,7 @@ import { Quiz } from "../models/quizzes.js";
 import { UserAnswer } from "../models/userAnswers.js";
 import { User } from "../models/users.js";
 
-export async function getQuizStatsForUser(quizId, userId) {
+export async function showQuizStatsForUser(quizId, userId) {
   const foundQuiz = await Quiz.findById(quizId);
   if (!foundQuiz) throw new Error("Quiz not found with id ", quizId);
 

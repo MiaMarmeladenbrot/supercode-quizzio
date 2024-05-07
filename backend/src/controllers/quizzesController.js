@@ -39,7 +39,7 @@ async function deleteQuizCtrl(req, res) {
   }
 }
 
-async function getQuizStatsForUserCtrl(req, res) {
+async function showQuizStatsForUserCtrl(req, res) {
   try {
     const quizId = req.params.quizId;
     const userId = req.params.userId;
@@ -74,6 +74,6 @@ export const QuizzesController = {
   getOneQuizWithQuestionsCtrl,
   postCreateQuizCtrl,
   deleteQuizCtrl,
-  getQuizStatsForUserCtrl,
+  showQuizStatsForUserCtrl,
   patchUpdateQuizCtrl,
 };

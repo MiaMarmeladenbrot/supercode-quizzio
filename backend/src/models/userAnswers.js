@@ -8,8 +8,8 @@ const userAnswersSchema = new mongoose.Schema(
       required: true,
     },
     userId: { type: mongoose.Types.ObjectId, ref: "User", required: true },
-    answerContent: [{ type: String, required: true }], // aus dem Frontend als input-state mitschicken?
-    answerFeedback: { type: Boolean, required: true }, // aus dem Frontend als input-state mitschicken?
+    answerContent: [{ type: String, required: true }], // aus dem Frontend als input-state mitschicken
+    answerFeedback: { type: Boolean, required: true }, // wird beim Erstellen der userAnswer abgeglichen und gespeichert
   },
   { collection: "userAnswers", timestamps: false }
 );

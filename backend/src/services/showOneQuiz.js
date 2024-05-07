@@ -8,7 +8,7 @@ export async function showOneQuiz(quizId) {
       "Das Quiz mit der Id " + quizId + " existiert leider nicht."
     );
 
-  // Output:
+  // Output von Quiz:
   // {
   //   "_id": "6638b6afbe792a3de8c416c1",
   //   "name": "Bestes Quiz",
@@ -21,10 +21,14 @@ export async function showOneQuiz(quizId) {
   // }
 
   // falls Quiz existiert, brauchen wir mehr als nur die Ids der jeweiligen Fragen
-  // mit gefunden questionIds in Question-Modell nach den Infos suchen und die zum Return hinzufügen?
+  // mit gefundenen questionIds in Question-Modell nach den Infos suchen und die zum Return hinzufügen?
+  // aber ohne die richtigen Antworten zu verraten - via find-projection correctAnswers ausklammern
   const questionIds = foundQuiz.questionIds;
   // console.log(questionIds);
-  const quizQuestions = await Question.find({ _id: questionIds });
+  const quizQuestions = await Question.find(
+    { _id: questionIds },
+    { correctAnswers: 0 }
+  );
 
   // return foundQuiz;
   return { ...foundQuiz.toObject(), quizQuestions };

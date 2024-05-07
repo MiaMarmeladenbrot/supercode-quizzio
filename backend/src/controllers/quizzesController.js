@@ -39,8 +39,25 @@ async function deleteQuizCtrl(req, res) {
   }
 }
 
+async function getQuizStatsForUserCtrl(req, res) {
+  try {
+    const quizId = req.params.quizId;
+    const userId = req.params.userId;
+    const foundStats = await QuizzesService.getQuizStatsForUser(quizId, userId);
+    res.json(foundStats);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      err,
+      message:
+        err.message || "Could not find any statistics for this user and quiz.",
+    });
+  }
+}
+
 export const QuizzesController = {
   getOneQuizWithQuestionsCtrl,
   postCreateQuizCtrl,
   deleteQuizCtrl,
+  getQuizStatsForUserCtrl,
 };

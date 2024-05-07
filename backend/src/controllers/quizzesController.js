@@ -55,9 +55,25 @@ async function getQuizStatsForUserCtrl(req, res) {
   }
 }
 
+async function patchUpdateQuizCtrl(req, res) {
+  try {
+    const quizId = req.params.quizId;
+    const quizUpdateInfo = req.body;
+
+    const updatedQuiz = await QuizzesService.editQuiz(quizId, quizUpdateInfo);
+    res.json(updatedQuiz);
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ err, message: message.err || "Could not update quiz." });
+  }
+}
+
 export const QuizzesController = {
   getOneQuizWithQuestionsCtrl,
   postCreateQuizCtrl,
   deleteQuizCtrl,
   getQuizStatsForUserCtrl,
+  patchUpdateQuizCtrl,
 };

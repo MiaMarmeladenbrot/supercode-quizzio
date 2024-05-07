@@ -21,5 +21,5 @@ export async function removeQuestionAndUserAnswers(questionId) {
   // console.log(removedQuestion);
   return { ...removedQuestion.toObject(), removedUserAnswers };
 
-  // # Frage noch aus den referenzierten Quizzes löschen - oder gleich andersrum referenzieren?
+  // # Frage noch aus den referenzierten Quizzes löschen
 }

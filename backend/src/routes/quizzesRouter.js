@@ -9,4 +9,5 @@ export const quizzesRouter = express
   )
   .get("/api/v1/quizzes/:quizId", QuizzesController.getOneQuizWithQuestionsCtrl)
   .post("/api/v1/quizzes", QuizzesController.postCreateQuizCtrl)
-  .delete("/api/v1/quizzes/:quizId", QuizzesController.deleteQuizCtrl);
+  .delete("/api/v1/quizzes/:quizId", QuizzesController.deleteQuizCtrl)
+  .patch("/api/v1/quizzes/:quizId", QuizzesController.patchUpdateQuizCtrl);

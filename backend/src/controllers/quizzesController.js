@@ -7,7 +7,9 @@ async function getOneQuizWithQuestionsCtrl(req, res) {
     res.json(foundQuiz);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not get this quiz" });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not get this quiz" });
   }
 }
 
@@ -18,7 +20,9 @@ async function postCreateQuizCtrl(req, res) {
     res.json(addedQuiz);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not add new quiz" });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not add new quiz" });
   }
 }
 
@@ -29,7 +33,9 @@ async function deleteQuizCtrl(req, res) {
     res.json(deletedQuiz);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could note delete this quiz" });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could note delete this quiz" });
   }
 }
 

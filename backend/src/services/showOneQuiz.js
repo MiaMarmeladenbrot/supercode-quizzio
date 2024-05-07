@@ -29,3 +29,11 @@ export async function showOneQuiz(quizId) {
   // return foundQuiz;
   return { ...foundQuiz.toObject(), quizQuestions };
 }
+
+// * Thomas' Lösung mit populate:
+// import { Quiz } from "../models/quizSchema.js"
+
+// export const showQuizWithQuestions = async (quizId) => {
+//   const foundQuiz = await Quiz.findById(quizId).populate("questions")
+//   return foundQuiz
+// }

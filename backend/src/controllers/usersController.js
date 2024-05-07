@@ -7,7 +7,7 @@ async function postCreateUserCtrl(req, res) {
     res.json(addedUser);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not add user" });
+    res.status(500).json({ err, message: err.message || "Could not add user" });
   }
 }
 
@@ -20,7 +20,9 @@ async function patchUpdateUserCtrl(req, res) {
     res.json(editedUser);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not update this user." });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not update this user." });
   }
 }
 
@@ -34,7 +36,10 @@ async function deleteUserAndUserAnswersCtrl(req, res) {
     console.log(err);
     res
       .status(500)
-      .json({ err, message: "Could not delete user with this id" });
+      .json({
+        err,
+        message: err.message || "Could not delete user with this id",
+      });
   }
 }
 export const UsersController = {

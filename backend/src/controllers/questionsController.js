@@ -7,7 +7,9 @@ async function postCreateQuestionCtrl(req, res) {
     res.json(addedQuestion);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not add new question" });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not add new question" });
   }
 }
 
@@ -23,7 +25,9 @@ async function patchUpdateQuestionCtrl(req, res) {
     res.json(editedQuestion);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not update this question." });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not update this question." });
   }
 }
 
@@ -37,7 +41,7 @@ async function deleteQuestionAndUserAnswersCtrl(req, res) {
     console.log(err);
     res.status(500).json({
       err,
-      message: "Could not delete question with this id",
+      message: err.message || "Could not delete question with this id",
     });
   }
 }

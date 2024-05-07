@@ -10,7 +10,10 @@ async function getShowAllUserAnswersByUserId(req, res) {
     console.log(err);
     res
       .status(500)
-      .json({ err, message: "Could not find the answers of this user." });
+      .json({
+        err,
+        message: err.message || "Could not find the answers of this user.",
+      });
   }
 }
 
@@ -37,7 +40,9 @@ async function postCreateUserAnswerCtrl(req, res) {
     res.json(addedUserAnswer);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ err, message: "Could not add new user answer" });
+    res
+      .status(500)
+      .json({ err, message: err.message || "Could not add new user answer" });
   }
 }
 
@@ -52,7 +57,7 @@ async function deleteUserAnswerCtrl(req, res) {
     console.log(err);
     res.status(500).json({
       err,
-      message: "Could not delete user answer with this id.",
+      message: err.message || "Could not delete user answer with this id.",
     });
   }
 }

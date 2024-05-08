@@ -5,7 +5,8 @@ const usersSchema = new mongoose.Schema(
     name: { type: String, required: true },
     surname: { type: String, required: true },
     email: { type: String, required: true },
-    // answerIds: [{ type: mongoose.Types.ObjectId, ref: "userAnswers" }],
+    passwordHash: { type: String, required: true, trim: true }, // hash of password (not clear-text!)
+    passwordSalt: { type: String, required: true, trim: true },
   },
   { collection: "users", timestamps: false }
 );

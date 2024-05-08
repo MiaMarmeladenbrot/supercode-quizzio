@@ -1,19 +1,20 @@
 import { UserAnswersService } from "../services/index.js";
 
-async function getShowAllUserAnswersByUserId(req, res) {
+async function getShowAllUserAnswersByUserIdCtrl(req, res) {
   try {
-    const userId = req.params.userId;
+    // const userId = req.params.userId;
+
+    // Id wird jetzt aus der zuvor abgeschlossenen Authentifizierung der User Id genommen:
+    const authenticatedUserId = req.authenticatedUser._id;
     const foundUserAnswers =
-      await UserAnswersService.showAllUserAnswersByUserId(userId);
+      await UserAnswersService.showAllUserAnswersByUserId(authenticatedUserId);
     res.json(foundUserAnswers);
   } catch (err) {
     console.log(err);
-    res
-      .status(500)
-      .json({
-        err,
-        message: err.message || "Could not find the answers of this user.",
-      });
+    res.status(500).json({
+      err,
+      message: err.message || "Could not find the answers of this user.",
+    });
   }
 }
 
@@ -63,7 +64,7 @@ async function deleteUserAnswerCtrl(req, res) {
 }
 
 export const UserAnswersController = {
-  getShowAllUserAnswersByUserId,
+  getShowAllUserAnswersByUserIdCtrl,
   postCreateUserAnswerCtrl,
   deleteUserAnswerCtrl,
 };
